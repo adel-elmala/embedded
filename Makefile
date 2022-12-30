@@ -1,8 +1,10 @@
 SRC = 	main.c\
 		application/application.c\
 		MCAL/DIO_Driver/dio.c\
+		MCAL/Timer_Driver/delay.c\
 		ECUAL/LED_Driver/led.c\
 		ECUAL/Button_Driver/button.c
+
 
 OBJ = $(subst .c,.o, $(SRC))
 

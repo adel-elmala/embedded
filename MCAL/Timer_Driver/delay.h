@@ -1,0 +1,25 @@
+#ifndef DELAY_H
+#define DELAY_H
+
+#ifndef F_CPU
+#define F_CPU 1000000UL
+#endif
+
+#define MAX_COUNT 256 // 8-bit counter
+
+#define TICK_TIME_0_PRESCALE (1.0f / (F_CPU))
+#define TICK_TIME_8_PRESCALE (8.0f / (F_CPU))
+#define TICK_TIME_64_PRESCALE (64.0f / (F_CPU))
+#define TICK_TIME_256_PRESCALE (256.0f / (F_CPU))
+#define TICK_TIME_1024_PRESCALE (1024.0f / (F_CPU))
+
+#define MAX_DELAY_0_PRESCALE ((TICK_TIME_0_PRESCALE)*MAX_COUNT)
+#define MAX_DELAY_8_PRESCALE ((TICK_TIME_8_PRESCALE)*MAX_COUNT)
+#define MAX_DELAY_64_PRESCALE ((TICK_TIME_64_PRESCALE)*MAX_COUNT)
+#define MAX_DELAY_256_PRESCALE ((TICK_TIME_256_PRESCALE)*MAX_COUNT)
+#define MAX_DELAY_1024_PRESCALE ((TICK_TIME_1024_PRESCALE)*MAX_COUNT)
+
+void delay_ms(unsigned int ms);
+void delay_us(unsigned int us);
+
+#endif
