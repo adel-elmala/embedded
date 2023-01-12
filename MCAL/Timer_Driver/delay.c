@@ -1,15 +1,24 @@
 #include "delay.h"
 #include "registers.h"
+#include <math.h>
+// unsigned int ceil(double num)
+// {
+//     unsigned int inum = (unsigned int)num;
+//     if (num == (double)inum)
+//         return inum;
+
+//     return inum + 1;
+// }
 
 void delay_ms(unsigned int ms)
 {
-    float counts_0_prescale = ms / (TICK_TIME_0_PRESCALE * 1000);
+    double counts_0_prescale = ms / (TICK_TIME_0_PRESCALE * 1000);
     // float counts_8_prescale = ms / TICK_TIME_8_PRESCALE;
     // float counts_64_prescale = ms / TICK_TIME_64_PRESCALE;
     // float counts_256_prescale = ms / TICK_TIME_256_PRESCALE;
     // float counts_1024_prescale = ms / TICK_TIME_1024_PRESCALE;
 
-    unsigned int nOverFlows_0_prescale = (((counts_0_prescale / MAX_COUNT) + 0.5) * 2) / 2;
+    unsigned int nOverFlows_0_prescale = ceil((counts_0_prescale / (double)MAX_COUNT));
     // float nOverFlows_8_prescale    = counts_8_prescale  / MAX_COUNT;
     // float nOverFlows_64_prescale   = counts_64_prescale  / MAX_COUNT;
     // float nOverFlows_256_prescale  = counts_256_prescale  / MAX_COUNT;

@@ -1,5 +1,4 @@
 #include "application/application.h"
-
 int main()
 {
     app_init();

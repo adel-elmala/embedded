@@ -2,6 +2,7 @@ SRC = 	main.c\
 		application/application.c\
 		MCAL/DIO_Driver/dio.c\
 		MCAL/Timer_Driver/delay.c\
+		MCAL/Interrupts_Driver/interrupts.c\
 		ECUAL/LED_Driver/led.c\
 		ECUAL/Button_Driver/button.c
 
@@ -12,7 +13,7 @@ MCU = atmega32
 
 CFLAGS = -Os -Wall -mmcu=$(MCU)
 
-INCLUDE = -I./utils
+INCLUDE  = -I./utils
 INCLUDE += -I./MCAL
 INCLUDE += -I./ECUAL
 

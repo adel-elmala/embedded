@@ -35,6 +35,16 @@
 #define TCCR0 (*(volatile uint8_t *)(0x53))
 #define OCR0 (*(volatile uint8_t *)(0x5C))
 
-#define TIFR (*(volatile uint8_t *)(0x58)) // shared btw timers 0/1/2
+#define TIFR (*(volatile uint8_t *)(0x58))  // shared btw timers 0/1/2
+#define TIMSK (*(volatile uint8_t *)(0x59)) // shared btw timers 0/1/2
+
+/*------------ ------------ ------------ ------------
+  ------------ interrupts Registers ------------
+  ------------ ------------ ------------ ------------ */
+
+#define SREG (*(volatile uint8_t *)(0x5F))
+#define GICR (*(volatile uint8_t *)(0x5B))
+#define MCUCR (*(volatile uint8_t *)(0x55))  // external int. 0/1 sensing contorl
+#define MCUCSR (*(volatile uint8_t *)(0x54)) // external int. 2 sensing contorl
 
 #endif
